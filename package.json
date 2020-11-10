@@ -7,7 +7,8 @@
   "description": "Template for setting up a TypeScript monorepo",
   "workspaces": [
     "packages/*",
-    "examples/*"
+    "examples/*",
+    "docs"
   ],
   "scripts": {
     "contributors:gen": "all-contributors generate",
