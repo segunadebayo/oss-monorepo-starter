@@ -16,7 +16,8 @@
     "build": "lerna run build",
     "publish": "changeset publish",
     "test": "lerna run test --no-private",
-    "lint": "lerna run lint --no-private"
+    "lint": "lerna run lint --no-private",
+    "plop": "ts-node -P tsconfig.node.json scripts/plopfile.ts"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.1",

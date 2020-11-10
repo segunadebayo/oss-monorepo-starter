@@ -1,0 +1,11 @@
+{
+  "transpileOnly": true,
+  "compilerOptions": {
+    "allowJs": true,
+    "module": "CommonJS",
+    "target": "es5",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node"
+  }
+}

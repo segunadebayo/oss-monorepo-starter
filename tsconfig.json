@@ -1,13 +1,4 @@
 {
-  "ts-node": {
-    "compilerOptions": {
-      "transpileOnly": true,
-      "module": "commonjs",
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "noImplicitAny": false
-    }
-  },
   "compilerOptions": {
     "strict": true,
     "declaration": true,
@@ -20,9 +11,6 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "isolatedModules": true,
     "jsx": "react"
-  },
-  "include": ["packages"],
-  "exclude": ["node_modules"]
+  }
 }
