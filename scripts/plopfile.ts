@@ -1,6 +1,6 @@
 import nodePlop, { ActionType } from "node-plop";
 
-const plop = nodePlop("oss-monorepo");
+const plop = nodePlop("plop-templates/plopfile.hbs");
 
 interface Answers {
   name: string;
@@ -16,23 +16,23 @@ async function createComponentPkg() {
       {
         type: "input",
         name: "name",
-        message: "Enter component package name",
+        message: "Enter component package name:",
       },
       {
         type: "input",
         name: "description",
-        message: "The description of this component",
+        message: "The description of this component:",
       },
       {
         type: "input",
         name: "keywords",
         message:
-          "The keywords for this component or package (for package.json)",
+          "The keywords for this component or package (for package.json):",
       },
       {
         type: "confirm",
         name: "isScoped",
-        message: "Whether package name should be scope? (e.g @scope/<pkg>)",
+        message: "Whether package name should be scope? (e.g @scope/<pkg>):",
       },
     ],
     actions(answers) {
@@ -42,18 +42,26 @@ async function createComponentPkg() {
       const packageName = isScoped ? `@ui-machines/${name}` : name;
       actions.push({
         type: "addMany",
-        templateFiles: "../plop-templates/component-machine/**",
-        base: "../plop-templates/component-machine/",
-        destination: `../packages/${name}`,
+        templateFiles: "component-machine/**",
+        destination: "../packages/{{name}}",
+        base: "component-machine/",
         data: { description, keywords: keywords.split(","), packageName },
       });
+
+      actions.push({
+        type: "add",
+        templateFile: "component-machine/README.md.hbs",
+        path: "../packages/README.md",
+      });
+
       return actions;
     },
   });
 
-  const { runPrompts, runActions } = plop.getGenerator("controller");
+  const { runPrompts, runActions } = plop.getGenerator("component");
   const answers = await runPrompts();
-  await runActions(answers);
+  const result = await runActions(answers);
+  console.log(result);
 }
 
 createComponentPkg();
