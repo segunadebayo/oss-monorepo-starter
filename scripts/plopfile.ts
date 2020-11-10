@@ -39,19 +39,14 @@ async function createComponentPkg() {
       const actions: ActionType[] = [];
       if (!answers) return actions;
       const { name, description, isScoped, keywords } = answers as Answers;
-      const packageName = isScoped ? `@ui-machines/${name}` : name;
+      const packageName = isScoped ? `@scope/${name}` : name;
       actions.push({
         type: "addMany",
-        templateFiles: "component-machine/**",
-        destination: "../packages/{{name}}",
-        base: "component-machine/",
+        templateFiles: "example/**",
+        destination: "../packages/{{dashCase name}}",
+        base: "example/",
         data: { description, keywords: keywords.split(","), packageName },
-      });
-
-      actions.push({
-        type: "add",
-        templateFile: "component-machine/README.md.hbs",
-        path: "../packages/README.md",
+        abortOnFail: true,
       });
 
       return actions;
