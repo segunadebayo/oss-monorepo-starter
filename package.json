@@ -16,8 +16,8 @@
     "bootstrap": "lerna bootstrap --use-workspaces",
     "build": "lerna run build",
     "publish": "changeset publish",
-    "test": "lerna run test --no-private",
-    "lint": "lerna run lint --no-private",
+    "test": "lerna run test",
+    "lint": "lerna run lint",
     "plop": "ts-node -P tsconfig.node.json scripts/plopfile.ts"
   },
   "devDependencies": {
