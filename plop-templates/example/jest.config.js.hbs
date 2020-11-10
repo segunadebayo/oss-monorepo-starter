@@ -1,10 +1,16 @@
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "node",
-  collectCoverageFrom: ["tests/**/*.{ts,tsx,js,jsx}"],
+  collectCoverageFrom: ["src/**/*.{ts,tsx,js,jsx}"],
   transform: {
     ".(ts|tsx)$": "ts-jest/dist",
   },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
+  {{#if isReact}}
   setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
+  {{/if}}
+  watchPlugins: [
+    require.resolve('jest-watch-typeahead/filename'),
+    require.resolve('jest-watch-typeahead/testname'),
+  ]
 }

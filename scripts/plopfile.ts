@@ -9,7 +9,7 @@ interface Answers {
   isScoped: boolean;
 }
 
-async function createComponentPkg() {
+async function createPackage() {
   plop.setGenerator("component", {
     description: "Generates a component package",
     prompts: [
@@ -56,7 +56,9 @@ async function createComponentPkg() {
   await runActions(answers);
 }
 
-function main() {
-  createComponentPkg();
+async function main() {
+  await createPackage();
   shell.exec("yarn bootstrap");
 }
+
+main();
