@@ -1,0 +1,14 @@
+{
+  "projectName": "OSS Monorepo Starter",
+  "projectOwner": "Segun Adebayo",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 40,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [],
+  "contributorsPerLine": 7
+}

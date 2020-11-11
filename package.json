@@ -11,6 +11,7 @@
     "docs"
   ],
   "scripts": {
+    "contributors:init": "all-contributors init",
     "contributors:gen": "all-contributors generate",
     "clean": "lerna run clean && rm -rf node_modules & rm -rf yarn.lock",
     "bootstrap": "lerna bootstrap --use-workspaces",
@@ -58,6 +59,7 @@
     "concurrently": "^5.3.0",
     "jest-watch-typeahead": "^0.6.1",
     "@types/shelljs": "^0.7.9",
+    "all-contributors-cli": "6.17.4",
     "plop": "^2.7.4"
   }
 }
